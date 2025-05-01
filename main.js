@@ -67,11 +67,11 @@ function lanciaDado() {
     const risultato = new Promise((resolve, reject) => {
         console.log("Sto lanciando il dado...")
         setTimeout(() => {
-            const valore = Math.floor(Math.random() * 6) +1
-            if(valore > 4,8){
-                reject("Incastrato!")
+            if(Math.random() < 0.2){
+                reject("Ti sei incastrato! Riprova")
             }else {
-                resolve(`il risultato è: ${valore}`)
+                const valore = Math.floor(Math.random() * 6) +1;
+                resolve(valore)
             }
         }, 3000)
     })
@@ -81,7 +81,7 @@ function lanciaDado() {
 }
 
 lanciaDado()
-.then(mess => console.log(mess))
+.then(risultato  => console.log("il risultato è :", risultato))
 .catch(err => console.error(err))
 
 //🎯 Bonus: HOF con closure per memorizzare l'ultimo lancio
