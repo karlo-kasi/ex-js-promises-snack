@@ -63,7 +63,26 @@ Crea una funzione getPost(id) che recupera l'intero post. Concatena una seconda 
 //🏆 Snack 2
 //Crea la funzione lanciaDado() che restituisce una Promise che, dopo 3 secondi, genera un numero casuale tra 1 e 6. Tuttavia, nel 20% dei casi, il dado si "incastra" e la Promise va in reject.
 
+function lanciaDado() {
+    const risultato = new Promise((resolve, reject) => {
+        console.log("Sto lanciando il dado...")
+        setTimeout(() => {
+            const valore = Math.floor(Math.random() * 6) +1
+            if(valore > 4,8){
+                reject("Incastrato!")
+            }else {
+                resolve(`il risultato è: ${valore}`)
+            }
+        }, 3000)
+    })
+    
+    return risultato
+    
+}
 
+lanciaDado()
+.then(mess => console.log(mess))
+.catch(err => console.error(err))
 
 //🎯 Bonus: HOF con closure per memorizzare l'ultimo lancio
 //Modifica la funzione in creaLanciaDado(), che restituisce una closure che memorizza l'ultimo risultato. Se il numero esce due volte di fila, stampa "Incredibile!".
